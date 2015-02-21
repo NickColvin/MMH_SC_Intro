@@ -140,6 +140,7 @@ various parts, durations and rhythms chosen stochastically (randomly).
 
 */
 
+(
 ~melody = Pbind(
 	\instrument, \squareSynth,
 	\degree, Prand(~tones, 16),
@@ -170,8 +171,11 @@ various parts, durations and rhythms chosen stochastically (randomly).
 	\dur, Pseq([1.5, 1.5, 1], 4),
 	\filtFreq, 300,
 	\rq, 0.5,
-	\octave, 3
+	\octave, 3,
+	\atk, 0.1
 );
+
+)
 
 (
 Pseq([
@@ -188,4 +192,3 @@ Pseq([
 ]).play
 )
 
-TempoClock.default.tempo
