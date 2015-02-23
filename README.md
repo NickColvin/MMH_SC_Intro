@@ -18,4 +18,12 @@ in understanding the material, but is not required.
 
 Online help documentation is [here](http://doc.sccode.org).
 
+Important commands to know in SuperCollider:
+==============
+
+'enter' - execute the current line of code (or selected code). On Macs this is shift+return.
+
+CMD+. (command period) - stop all running processes on server
+
+CMD+d - look up the selected text in the help files
 

@@ -1,5 +1,3 @@
-
-
 /*
 
 **** A quick event overview. ****
@@ -31,7 +29,7 @@ fork{
 		if( noteVal == nil ) { r.reset; this.yield };
 
 		(note: noteVal, root: 0, dur: 0.25).play;
-		0.25.wait; // i'd change the duration here just not make it clear that dur and wait are two different things
+		0.3.wait;
 	}
 }
 )
