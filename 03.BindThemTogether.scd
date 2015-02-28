@@ -80,8 +80,8 @@ a more familiar (and less hokey) line.
 	\dur, 0.25,
 	\mtranspose, 0,
 	\legato, 1,
-	\filtFreq, Pseq([Pn(0, 100), Pseries(0.0, 0.01, 100), Pn(1, 100), Pseries(1.0, -0.01, 100)], inf) * 400 + 150,
-	\rq, 0.9 - (Pseq([Pn(0, 100), Pseries(0.0, 0.005, 200), Pn(1, 100), Pseries(1.0, -0.01, 100)], inf) * 0.7)
+	\filtFreq, Pseg([0, 1, 0], 32, 'lin', inf) * 400 + 150,
+	\rq, 0.9 - Pseg([0, 0.7, 0], 16, 'lin', inf)
 )
 )
 
