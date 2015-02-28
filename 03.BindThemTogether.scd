@@ -74,7 +74,7 @@ a more familiar (and less hokey) line.
 */
 
 (
-~floydify = Pbind(
+~runaway = Pbind(
 	\instrument, \squareSynth,
 	\octave, 3,
 	\dur, 0.25,
@@ -86,7 +86,7 @@ a more familiar (and less hokey) line.
 )
 
 
-~result = ~floydify <> p;
+~result = ~runaway <> p;
 
 x = ~result.play
 x.stop
@@ -124,7 +124,7 @@ Note that you can use a Pchain within other patterns as well.
 (
 Pseq([
 	Pfindur(12, p,),
-	~floydify <> Pfindur(12, p,),
+	~runaway <> Pfindur(12, p,),
 	Pfindur(12, p,)
 ]).play
 )
