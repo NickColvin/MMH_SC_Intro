@@ -2,6 +2,13 @@
 
 { SinOsc.ar() }.play
 
+// playback a file
+
+{ b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav"); PlayBuf.ar(1, b, BufRateScale.kr(b)) }.play
+
+/////////////////////////
+// automatic music box //
+/////////////////////////
 
 
 (// start with an impulse
@@ -111,9 +118,9 @@
 		{|i|
 			var snd, trig;
 			i=i+1;
-			trig = Lag.ar(Impulse.ar(i), 0.01);
+			trig = Lag.ar(Impulse.ar(i), 0.005);
 			snd = Ringz.ar( trig, Demand.ar(trig, 0, Dshuf([0,2,4,5,7,9,11] + 30 + (i*10), inf).midicps));
-			snd = snd * (1/i);
+			snd = snd * (1/i); // bring down the amplitude on each iteration
 
 			snd = snd + CombC.ar(snd, 0.2, 0.1, mul: 0.3); // add some delay
 
@@ -140,5 +147,4 @@ ChaosGen.allSubclasses.do(_.postln)
 {GbmanN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
 {LorenzL.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
 
-// demand rate ugens
 
