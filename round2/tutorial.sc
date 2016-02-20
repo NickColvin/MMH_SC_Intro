@@ -105,6 +105,26 @@
 }.play
 )
 
+(// using demand rate
+{
+	var sound = Splay.ar(
+		{|i|
+			var snd, trig;
+			i=i+1;
+			trig = Lag.ar(Impulse.ar(i), 0.01);
+			snd = Ringz.ar( trig, Demand.ar(trig, 0, Dshuf([0,2,4,5,7,9,11] + 30 + (i*10), inf).midicps));
+			snd = snd * (1/i);
+
+			snd = snd + CombC.ar(snd, 0.2, 0.1, mul: 0.3); // add some delay
+
+		}.dup(4); // duplicate this
+
+	);
+
+	Limiter.ar(sound, 0.5); //protect your ears
+}.play
+)
+
 
 // Chaos ugens
 
