@@ -68,10 +68,57 @@
 }.play
 )
 
+(// play around
+{
+	var sound = Splay.ar(
+		{|i|
+			var snd;
+			i=i+1;
+			snd = Impulse.ar(i);
+			snd = Ringz.ar( snd, GbmanN.ar(1+i, mul: 20, add: 40+(i*5)).round.midicps);
+
+			snd + CombC.ar(snd, 0.2, 0.1, mul: 0.3); // add some delay
+		}.dup(4); // duplicate this
+
+	);
+
+	Limiter.ar(sound, 0.5); //protect your ears
+}.play
+)
+
+
+(// play around
+{
+	var sound = Splay.ar(
+		{|i|
+			var snd;
+			i=i+1;
+			snd = Impulse.ar(i);
+			snd = Ringz.ar( snd, GbmanN.ar(1+i, mul: 20, add: 40+(i*5)).round.midicps);
+
+			snd + CombC.ar(snd, 0.2, 0.1, mul: 0.3); // add some delay
+		}.dup(4); // duplicate this
+
+	);
+
+	Limiter.ar(sound, 0.5); //protect your ears
+}.play
+)
+
 
 // Chaos ugens
 
 ChaosGen.allSubclasses.do(_.postln)
 
-//
+// What do these look like?
+
+{LinCongN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{HenonN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{LatoocarfianN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{CuspN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{QuadN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{GbmanN.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+{LorenzL.ar}.plot(0.005, bounds: Rect(0, 0, 1000, 500));
+
+// demand rate ugens
 

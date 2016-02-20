@@ -15,7 +15,7 @@ play{Splay.ar({|i|j=i+2;b=GbmanN.ar(j);c=b*880%3000;CombC.ar(FBSineC.ar(c,1.01*j
 
 // mic in the wind
 
-play{LeakDC.ar(CompanderD.ar(LPF.ar(Normalizer.ar(CompanderD.ar(BrownNoise.ar!2,0.1,0.1,4)),LFDNoise3.kr(8,90,150)),0.1,1,0.5))} // wind mic
+play{LeakDC.ar(CompanderD.ar(LPF.ar(Normalizer.ar(CompanderD.ar(BrownNoise.ar!2,0.1,0.1,4)),LFDNoise3.kr(8,90,150)),0.1,1,0.5))}
 
 ( // not quite a tweet
 play{
@@ -37,6 +37,8 @@ play{a};
 )
 
 // spacey buzz
+
+(
 play{Mix.new({|i|
 	j=i+2;
 	b=LinCongN.ar(j).range(0,15);
@@ -52,4 +54,4 @@ play{Mix.new({|i|
 	)
 	}!3)
 }
-
+)
